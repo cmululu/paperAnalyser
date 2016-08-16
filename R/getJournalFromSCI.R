@@ -1,0 +1,17 @@
+getJournalFromSCI <- function(path) {
+  require(plyr)
+  require(dplyr)
+  publishyear <- getInformationFromSCI(path, "PY")
+  title <- getInformationFromSCI(path, "TI", paste = T)
+  fullname_df <- getInformationFromSCI(path, "SO")
+  j9_name_df <- getInformationFromSCI(path, "J9")
+  iso_name_df <- getInformationFromSCI(path, "JI")
+  la_df <- getInformationFromSCI(path, "LA")
+  df <- left_join(publishyear,title )
+  df <- left_join(df,fullname_df)
+  df <- left_join(df,j9_name_df)
+  df <- left_join(df,iso_name_df)
+  df <- left_join(df,la_df)
+  names(df) <- c("articleid","publishyear","title", "fullname","j9name","isoname","language")
+  return(df)
+}

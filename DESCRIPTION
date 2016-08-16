@@ -1,0 +1,9 @@
+Package: paperAnalyze
+Type: Package
+Title: Analyze the papers
+Version: 0.1.0
+Author: yueyy
+Maintainer: yueyy <366728785@qq.com>
+Description:
+License:
+LazyData: TRUE
