@@ -18,6 +18,8 @@ getAuthorFromWanfangNotefirst<- function(path){
     if(length(orgnization) == 0) return(data.frame(author,NA))
     else return(data.frame(author,orgnization))
   }))
+
+
   if(length(title) == 0 ) title <- NA
   if(length(year) == 0) year <- NA
   if(nrow(audf) == 0) audf <- NA
