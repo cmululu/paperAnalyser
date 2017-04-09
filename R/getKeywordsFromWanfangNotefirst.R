@@ -7,9 +7,9 @@ getKeywordsFromWanfangNotefirst<- function(path,mode="chinese"){
   xml <- xmlParse(path,encoding = "UTF8")
 
   ns <- getNodeSet(xml, "//Bibliography")
-  ##灏唋ist杞崲涓烘暟鎹
+  ##将list转换为数据框
   df <- rbindlist(lapply(ns, function(x){
-    ##鎻愬彇pmid
+    ##提取pmid
     title <- xpathSApply(x,".//Title[@Lang='chi']|.//Title[not(@Lang)]",xmlValue)
     year <- xpathSApply(x,".//Year",xmlValue)
     if(mode == "english" | mode == "2")
